@@ -54,7 +54,9 @@ def text_to_binary(message):
     return binary_message
     
 
+'''
 def image_scale(image, scale_factor, name):
     new_size = (image.size[0] * scale_factor, image.size[1] * scale_factor)
     image = image.resize(new_size)
     image.save('static/' + name + '.jpg', format = "PNG")
+'''
