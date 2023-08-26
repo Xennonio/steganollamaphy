@@ -1,4 +1,3 @@
 - apology function for error
 - select name to image output
-- download button
 - encrypt method

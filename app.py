@@ -31,16 +31,20 @@ def encrypt():
         if not request.form.get('msg'):
             print('error')
             redirect('/')
+        if not request.form.get('filename'):
+            print('error')
+            redirect('/')
 
         image = Image.open(request.files['img'])
         message = request.form.get('msg')
+        filename = request.form.get('filename')
 
         binary_message = text_to_binary(message)
-        encrypt_check = encryptimg(image, 'encrypted_image', binary_message)
+        encrypt_check = encryptimg(image, filename, binary_message)
 
         image_size = image.size[0] * image.size[1]
         if encrypt_check:
-            return render_template('encrypted.html')
+            return render_template('encrypted.html', name = filename + '.jpg')
         else:
             return redirect('/')
     else:
