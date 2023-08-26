@@ -6,4 +6,20 @@
 
 {% block main %}
     <img src="{{ url_for('static', filename = 'encrypted_image.jpg') }}" alt="encrypted_image" class="img-fluid"></img>
+    <button id="downloadButton">Download Image</button>
+
+    <script>
+        const downloadButton = document.getElementById('downloadButton');
+        const image = document.querySelector('img');
+    
+        downloadButton.addEventListener('click', function() {
+            const a = document.createElement('a');
+            a.href = image.src;
+            a.download = 'image.jpg';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+    </script>
 {% endblock %}
