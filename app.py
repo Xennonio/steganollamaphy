@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from PIL import Image
 
 from llamanographer import encryptimg, decryptimg, text_to_binary, image_scale
@@ -12,6 +12,9 @@ def index():
 
 @app.route('/encrypt', methods = ['GET', 'POST'])
 def encrypt():
+    # Initialize image_size with a default value (e.g., None) if it doesn't exist in the session
+    image_size = session.get('image_size', None)
+
     if request.method == 'POST':
         if not request.files['img']:
             print('error')
@@ -26,11 +29,12 @@ def encrypt():
         binary_message = text_to_binary(message)
         encryptimg(image, 'encrypted_image', binary_message)
 
-        # image_size = image.size[0] * image.size[1]
+        image_size = image.size[0] * image.size[1]
+        print(image_size)
 
         return render_template('encrypted.html')
     else:
-        return render_template('encrypt.html')
+        return render_template('encrypt.html', image_size=image_size)
 
 
 @app.route('/decrypt', methods = ['GET', 'POST'])
