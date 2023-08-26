@@ -26,6 +26,8 @@ def encrypt():
         binary_message = text_to_binary(message)
         encryptimg(image, 'encrypted_image', binary_message)
 
+        # image_size = image.size[0] * image.size[1]
+
         return render_template('encrypted.html')
     else:
         return render_template('encrypt.html')
