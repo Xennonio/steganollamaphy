@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 from PIL import Image
 
 from llamanographer import encryptimg, decryptimg, text_to_binary, image_scale
@@ -8,6 +8,15 @@ app = Flask(__name__, static_url_path='/static')
 @app.route('/')
 def index():
     return render_template('layout.html')
+
+
+@app.route('/get_image_size', methods=['POST'])
+def get_image_size():
+    if request.files['img']:
+        image = Image.open(request.files['img'])
+        image_size = image.size[0] * image.size[1]
+        return jsonify({'image_size': image_size})
+    return jsonify({'image_size': None})
 
 
 @app.route('/encrypt', methods = ['GET', 'POST'])

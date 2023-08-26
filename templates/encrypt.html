@@ -16,35 +16,45 @@
             <span id="charCount">0/{{ image_size }}</span>
 
             <script>
-                // Get the file and message input element and the character count element
                 const fileInput = document.getElementById('img');
                 const msgInput = document.getElementById('msg');
                 const charCount = document.getElementById('charCount');
-
-                // Add an event listener to the file input
+            
                 fileInput.addEventListener('change', function () {
-                    // Check if a file has been selected
                     if (this.files.length > 0) {
-                        // Enable the message input
-                        msgInput.removeAttribute('disabled');
+                        // Upload the image and get the image size asynchronously
+                        const formData = new FormData();
+                        formData.append('img', this.files[0]);
+            
+                        fetch('/get_image_size', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            const image_size = data.image_size;
+                            // Update maxCharacters with the received image_size
+                            const maxCharacters = image_size;
+            
+                            msgInput.removeAttribute('disabled');
+                            updateCharCount();
+            
+                            // Function to update character count
+                            function updateCharCount() {
+                                const currentLength = msgInput.value.length;
+                                charCount.textContent = currentLength + '/' + maxCharacters;
+                            }
+                            
+                            // Add an event listener to the input field to track changes
+                            msgInput.addEventListener('input', updateCharCount);
+                        });
                     } else {
-                        // If no file is selected, disable the message input
                         msgInput.setAttribute('disabled', 'disabled');
+                        charCount.textContent = '0/0';
                     }
                 });
-            
-                // Set the maximum character limit
-                const maxCharacters = '{{ image_size }}';
-            
-                // Add an event listener to the input field to track changes
-                msgInput.addEventListener('input', function() {
-                    // Get the current text length
-                    const currentLength = this.value.length;
-            
-                    // Update the character count element
-                    charCount.textContent = currentLength + '/' + maxCharacters;
-                });
             </script>
+            
 
         </div>
         <button class="btn btn-primary" type="submit">Encrypt</button>
