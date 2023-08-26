@@ -44,7 +44,7 @@ def encrypt():
 
         image_size = image.size[0] * image.size[1]
         if encrypt_check:
-            return render_template('encrypted.html', name = filename + '.jpg')
+            return render_template('encrypted.html', name = filename)
         else:
             return redirect('/')
     else:

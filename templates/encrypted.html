@@ -6,7 +6,10 @@
 
 {% block main %}
 <div class="mb-3">
-    <img src="{{ url_for('static', filename =  name ) }}" alt="encrypted_image" class="img-fluid"></img>
+    <p>Image link: http://xenonio.pythonanywhere.com/static/{{ name }}.jpg</p>
+</div>
+<div class="mb-3">
+    <img src="{{ url_for('static', filename =  name + '.jpg' ) }}" alt="encrypted_image" class="img-fluid"></img>
 </div>
 <div class="mb-3">
     <button class="btn btn-primary" id="downloadButton">Download Image</button>
@@ -19,7 +22,7 @@
         downloadButton.addEventListener('click', function() {
             const a = document.createElement('a');
             a.href = image.src;
-            a.download = '{{ name }}';
+            a.download = "{{ name + '.jpg' }}";
             a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
