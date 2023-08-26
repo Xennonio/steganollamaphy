@@ -1,2 +1,2 @@
 # Ignorar a pasta __pycache__ que só serve localmente
-__pycache__
+__pycache__/
