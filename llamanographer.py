@@ -1,6 +1,7 @@
 def encryptimg(image, name, message):
     if len(message) > 3 * image.size[0] * image.size[1]:
         print("text too big for the image")
+        return False
     else:
         counter = 0
         pixels = image.load()
@@ -20,7 +21,7 @@ def encryptimg(image, name, message):
                     if counter == len(message):
                         pixels[i, j] = tuple(tpx)
                         image.save('static/' + name + '.jpg', format = "PNG")
-                        return
+                        return True
                 pixels[i, j] = tuple(tpx)
 
 
