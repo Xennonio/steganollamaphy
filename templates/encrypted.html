@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Encrypted
+{% endblock %}
+
+{% block main %}
+    <img src="{{ url_for('static', filename = 'encrypted_image.jpg') }}" alt="encrypted_image" class="img-fluid"></img>
+{% endblock %}

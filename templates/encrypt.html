@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Encrypt
+{% endblock %}
+
+{% block main %}
+    <form action="/encrypt" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="img">Select image:</label>
+            <input type="file" id="img" name="img" accept="image/*">
+        </div>
+        <div class="mb-3">
+            <label for="msg">Message:</label>
+            <input autocomplete="off" type="text" id="msg" name="msg">
+        </div>
+        <button class="btn btn-primary" type="submit">Encrypt</button>
+    </form>
+{% endblock %}

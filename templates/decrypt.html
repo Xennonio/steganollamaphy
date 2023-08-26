@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Decrypt
+{% endblock %}
+
+{% block main %}
+<form action="/decrypt" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" min="1" type="number" placeholder="Message Size" id="textsize" name="textsize">
+    </div>
+    <button class="btn btn-primary" type="submit">Decrypt</button>
+</form>
+{% endblock %}
