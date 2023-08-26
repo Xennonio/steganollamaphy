@@ -52,7 +52,7 @@ def text_to_binary(message):
         for bit in bin:
             binary_message.append(int(bit))
     return binary_message
-    
+
 
 def image_scale(image, scale_factor, name):
     new_size = (image.size[0] * scale_factor, image.size[1] * scale_factor)
