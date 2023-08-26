@@ -11,12 +11,12 @@
             <input type="file" id="img" name="img" accept="image/*">
         </div>
         <div class="mb-3">
-            <input autocomplete="off" type="text" id="filename" name="filename" placeholder="Image Name">
+            <input autocomplete="off" type="text" id="filename" name="filename" placeholder="Image Name" required>
         </div>
         <span id="charCount">Upload the image to see character limit</span>
         <div class="mb-3">
             <label for="msg">Message:</label>
-            <input autocomplete="off" type="text" id="msg" name="msg" disabled>
+            <input autocomplete="off" type="text" id="msg" name="msg" disabled required>
 
             <script>
                 const fileInput = document.getElementById('img');

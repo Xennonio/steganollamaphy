@@ -43,8 +43,17 @@ def encrypt():
         encrypt_check = encryptimg(image, filename, binary_message)
 
         image_size = image.size[0] * image.size[1]
+
+        urlname = ''
+
+        for character in filename:
+            if character == ' ':
+                urlname += '%20'
+            else:
+                urlname += character
+
         if encrypt_check:
-            return render_template('encrypted.html', name = filename)
+            return render_template('encrypted.html', name = filename, url = urlname)
         else:
             return redirect('/')
     else:

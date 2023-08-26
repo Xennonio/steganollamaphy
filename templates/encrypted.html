@@ -6,7 +6,7 @@
 
 {% block main %}
 <div class="mb-3">
-    <p>Image link: http://xenonio.pythonanywhere.com/static/{{ name }}.jpg</p>
+    <p>Image link: http://xenonio.pythonanywhere.com/static/{{ url }}.jpg</p>
 </div>
 <div class="mb-3">
     <img src="{{ url_for('static', filename =  name + '.jpg' ) }}" alt="encrypted_image" class="img-fluid"></img>
