@@ -1,3 +1,5 @@
 - apology function for error
-- smart way to choose different names
-- encrypt method
+- smart way to choose different names to save images in static
+- encrypt methods to choose
+- about the website
+- change style
