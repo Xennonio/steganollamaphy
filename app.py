@@ -11,7 +11,7 @@ app = Flask(__name__, static_url_path='/static')
 # Define a route for the root URL '/'
 @app.route('/')
 def index():
-    return render_template('layout.html')
+    return render_template('homepage.html')
 
 # Define a route for handling POST requests to '/get_image_size'
 @app.route('/get_image_size', methods=['POST'])
