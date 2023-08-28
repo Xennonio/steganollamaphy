@@ -15,23 +15,38 @@
 
     <body>
 
-        <nav class="bg-light border navbar navbar-expand-md navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/"><span class="blue">STEGANOLLAMAPHY</span></a>
-                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="navbar-nav me-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/encrypt">Encrypt</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/decrypt">Decrypt</a></li>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                <img src="static/llama.ico" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                STEGANOLLAMAPHY
+                </a>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/encrypt">Encrypt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/decrypt">Decrypt</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Cipher</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
                         </ul>
-                        <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                        </ul>
-                </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">How to use</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+          </nav>
 
         <main class="container py-5 text-center">
             {% block main %}{% endblock %}
