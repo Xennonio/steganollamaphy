@@ -7,16 +7,16 @@
 {% block main %}
     <form action="/encrypt" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img" accept="image/*" required>
+            <label for="img" class="form-label">Select image:</label>
+            <input type="file" id="img" name="img" accept="image/*" required class="form-control">
         </div>
         <div class="mb-3">
-            <input autocomplete="off" type="text" id="filename" name="filename" placeholder="Image Name" required>
+            <input autocomplete="off" type="text" id="filename" name="filename" placeholder="Image Name" required class="form-control">
         </div>
         <span id="charCount">Upload the image to see character limit</span>
         <div class="mb-3">
-            <label for="msg">Message:</label>
-            <input autocomplete="off" type="text" id="msg" name="msg" disabled required>
+            <label for="msg" class="form-label">Message:</label>
+            <input autocomplete="off" type="text" id="msg" name="msg" disabled required class="form-control">
 
             <script>
                 const fileInput = document.getElementById('img');

@@ -5,14 +5,16 @@
 {% endblock %}
 
 {% block main %}
-<form action="/decrypt" method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="img">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*" required>
-    </div>
-    <div class="mb-3">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" min="1" type="number" placeholder="Message Size" id="textsize" name="textsize" required>
-    </div>
-    <button class="btn btn-primary" type="submit">Decrypt</button>
-</form>
+
+    <form action="/decrypt" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="img" class="form-label">Select Image:</label>
+            <input type="file" id="img" name="img" accept="image/*" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control" min="1" type="number" placeholder="Message Size" id="textsize" name="textsize" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Decrypt</button>
+    </form>
+
 {% endblock %}
