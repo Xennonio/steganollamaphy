@@ -111,3 +111,7 @@ def about():
 @app.route('/ciphers')
 def ciphers():
     return render_template('ciphers.html')
+
+@app.route('/htu')
+def howtouse():
+    return render_template('howtouse.html')
