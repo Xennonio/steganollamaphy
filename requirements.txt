@@ -1,6 +1,15 @@
 - apology function for error
 - smart way to choose different names to save images in static
-- encrypt methods to choose (ciphers)
+- encrypt methods to choose (some encodings from https://cryptii.com)
+    -- transform --
+    - replace
+    - reverse
+    - morse
+    -- alphabets --
+    - spelling alphabet
+    -- ciphers --
+    - all
+    ... we will see ...
 - create pages
     - /ciphers
     - /htu

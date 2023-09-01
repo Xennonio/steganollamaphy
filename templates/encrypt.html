@@ -60,14 +60,31 @@
 
         </div>
         <div class="mb-3">
-            <select class="form-select mx-auto w-auto" id="encoding" name="encoding" required>
-                <option disabled selected>Encoding</option>
-                <option value="replace">Replace</option>
-                <option value="encoding2">Encoding 2</option>
-                <option value="encoding3">Encoding 3</option>
-            </select>
+            <div style="display: inline-block;margin-right: 10px;">
+                <select class="form-select mx-auto w-auto" id="encoding1" name="encoding1">
+                    <option disabled selected>Transform</option>
+                    <option value="replace">Replace</option>
+                    <option value="transform2">Transform 2</option>
+                    <option value="transform3">Transform 3</option>
+                </select>
+            </div>
+            <div style="display: inline-block;margin-right: 10px;">
+                <select class="form-select mx-auto w-auto" id="encoding2" name="encoding2">
+                    <option disabled selected>Alphabets</option>
+                    <option value="alphabet1">Alphabet 1</option>
+                    <option value="alphabet2">Alphabet 2</option>
+                    <option value="alphabet3">Alphabet 3</option>
+                </select>
+            </div>
+            <div style="display: inline-block;margin-right: 10px;">
+                <select class="form-select mx-auto w-auto" id="encoding3" name="encoding3">
+                    <option disabled selected>Ciphers</option>
+                    <option value="cipher1">Cipher 1</option>
+                    <option value="cipher2">Cipher 2</option>
+                    <option value="cipher3">Cipher 3</option>
+                </select>
+            </div>
         </div>
-
         <div id="Encoding1" class="hidden mb-3">
             <div class="mb-3">
                 <input autocomplete="off" type="text" id="find" name="find" placeholder="Find" required class="form-control">
@@ -90,30 +107,26 @@
             </div>
         </div>
 
-        <div id="Encoding2" class="hidden mb-3">This is Encoding 2</div>
-
-        <div id="Encoding3" class="hidden mb-3">This is Encoding 3</div>
+        <!--
+            <div id="encoding x" class="hidden mb-3">This is Encoding x</div>
+        -->
 
         <script>
             // Get a reference to the select element
-            var selectElement = document.getElementById("encoding");
+            var selectElement = document.getElementById("encoding1");
 
             // Get references to the div elements you want to show/hide
             var Encoding1 = document.getElementById("Encoding1");
-            var Encoding2 = document.getElementById("Encoding2");
-            var Encoding3 = document.getElementById("Encoding3");
+            
 
             // Hide all div elements initially
             Encoding1.style.display = "none";
-            Encoding2.style.display = "none";
-            Encoding3.style.display = "none";
+
 
             // Add an event listener to the select element
             selectElement.addEventListener("change", function () {
                 // Restart all div elements
                 Encoding1.style.display = "none";
-                Encoding2.style.display = "none";
-                Encoding3.style.display = "none";
 
                 // Get the selected option
                 var selectedOption = selectElement.value;
@@ -121,11 +134,9 @@
                 // Show the corresponding div element based on the selected option
                 if (selectedOption === "replace") {
                     Encoding1.style.display = "block";
-                } else if (selectedOption === "encoding2") {
+                } /*else if (selectedOption === "encoding2") {
                     Encoding2.style.display = "block";
-                } else if (selectedOption === "encoding3") {
-                    Encoding3.style.display = "block";
-                }
+                }*/
             });
         </script>
 
