@@ -50,6 +50,7 @@ def encrypt():
         image = Image.open(request.files['img'])
         message = request.form.get('msg')
         filename = request.form.get('filename')
+        cipher = request.form.get('cipher')
 
         # Convert the message to binary and encrypt image with the binary message
         binary_message = text_to_binary(message)
