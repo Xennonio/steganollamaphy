@@ -72,12 +72,3 @@ def text_to_binary(message):
         for bit in bin:
             binary_message.append(int(bit)) # store in binary message list
     return binary_message
-
-def replace(message, find, replace, casesensitivity):
-    if casesensitivity == 'No':
-        compiled = re.compile(re.escape(find), re.IGNORECASE)
-        message = compiled.sub(replace, message)
-    else:
-        message = message.replace(find, replace)
-
-    return message

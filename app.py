@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 from PIL import Image
 
 # Import cryptography functions from another file
-from llamanographer import encryptimg, decryptimg, text_to_binary, replace
+from llamanographer import encryptimg, decryptimg, text_to_binary
 
 # Create a Flask web application
 app = Flask(__name__, static_url_path='/static')
@@ -35,19 +35,10 @@ def encrypt():
 
     # Check if the request method is POST
     if request.method == 'POST':
-        # Open the files from the request
+        # Get the responses from the request
         image = Image.open(request.files['img'])
         filename = request.form.get('filename')
-        encoding = request.form.get('encoding')
         message = request.form.get('msg')
-
-        # Use the chosen encoding
-        if encoding == 'replace':
-            casesensitivity_ = request.form.get('option')
-            find_ = request.form.get('find')
-            replace_ = request.form.get('replace')
-
-            message = replace(message, find_, replace_, casesensitivity_)
 
         # Convert the message to binary and encrypt image with the binary message
         binary_message = text_to_binary(message)
@@ -85,7 +76,7 @@ def decrypt():
             print('error')
             redirect('/')
 
-        # Open the files from the request
+        # Get the responses from the request
         image = Image.open(request.files['img'])
         textsize = int(request.form.get('textsize'))
         
