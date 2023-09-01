@@ -1,3 +1,5 @@
+import re
+
 def encryptimg(image, name, message):
     # Check if the length of the message fits the image
     if len(message) > 3 * image.size[0] * image.size[1]:
@@ -71,8 +73,11 @@ def text_to_binary(message):
             binary_message.append(int(bit)) # store in binary message list
     return binary_message
 
+def replace(message, find, replace, casesensitivity):
+    if casesensitivity == 'No':
+        compiled = re.compile(re.escape(find), re.IGNORECASE)
+        message = compiled.sub(replace, message)
+    else:
+        message = message.replace(find, replace)
 
-def image_scale(image, scale_factor, name):
-    new_size = (image.size[0] * scale_factor, image.size[1] * scale_factor)
-    image = image.resize(new_size)
-    image.save('static/' + name + '.jpg', format = "PNG")
+    return message

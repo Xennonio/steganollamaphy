@@ -60,13 +60,75 @@
 
         </div>
         <div class="mb-3">
-            <select class="form-select mx-auto w-auto" id="symbol" name="symbol">
+            <select class="form-select mx-auto w-auto" id="cipher" name="cipher" required>
                 <option disabled selected>Cipher</option>
-                <option value="cipher1">Cipher 1</option>
+                <option value="replace">Replace</option>
                 <option value="cipher2">Cipher 2</option>
                 <option value="cipher3">Cipher 3</option>
             </select>
         </div>
+
+        <div id="Cipher1" class="hidden mb-3">
+            <div class="mb-3">
+                <input autocomplete="off" type="text" id="find" name="find" placeholder="Find" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" type="text" id="replace" name="replace" placeholder="Replace" required class="form-control">
+            </div>
+            <div>
+                <p>Case Sensitivity</p>
+                <input class="form-check-input" type="radio" name="option" id="option1" value="Yes">
+                <label class="form-check-label" for="option1">
+                    Yes
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="option" id="option2" value="No" checked>
+                <label class="form-check-label" for="option2">
+                    No
+                </label>
+            </div>
+        </div>
+
+        <div id="Cipher2" class="hidden mb-3">This is Cipher 2</div>
+
+        <div id="Cipher3" class="hidden mb-3">This is Cipher 3</div>
+
+        <script>
+            // Get a reference to the select element
+            var selectElement = document.getElementById("cipher");
+
+            // Get references to the div elements you want to show/hide
+            var Cipher1 = document.getElementById("Cipher1");
+            var Cipher2 = document.getElementById("Cipher2");
+            var Cipher3 = document.getElementById("Cipher3");
+
+            // Hide all div elements initially
+            Cipher1.style.display = "none";
+            Cipher2.style.display = "none";
+            Cipher3.style.display = "none";
+
+            // Add an event listener to the select element
+            selectElement.addEventListener("change", function () {
+                // Restart all div elements
+                Cipher1.style.display = "none";
+                Cipher2.style.display = "none";
+                Cipher3.style.display = "none";
+
+                // Get the selected option
+                var selectedOption = selectElement.value;
+
+                // Show the corresponding div element based on the selected option
+                if (selectedOption === "replace") {
+                    Cipher1.style.display = "block";
+                } else if (selectedOption === "cipher2") {
+                    Cipher2.style.display = "block";
+                } else if (selectedOption === "cipher3") {
+                    Cipher3.style.display = "block";
+                }
+            });
+        </script>
+
         <button class="btn btn-primary" type="submit">Encrypt</button>
     </form>
 {% endblock %}

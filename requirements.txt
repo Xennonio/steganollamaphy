@@ -1,8 +1,6 @@
 - apology function for error
 - smart way to choose different names to save images in static
-- encrypt methods to choose
-    - cipher1: save the last encrypted pixel
-    - cipher2: choose where to start and end encryptation
+- encrypt methods to choose (ciphers)
 - create pages
     - /ciphers
     - /htu
