@@ -38,12 +38,11 @@ def encrypt():
         # Open the files from the request
         image = Image.open(request.files['img'])
         filename = request.form.get('filename')
-        cipher = request.form.get('cipher')
+        encoding = request.form.get('encoding')
         message = request.form.get('msg')
-        print(cipher)
 
-        # Use the chosen cipher
-        if cipher == 'replace':
+        # Use the chosen encoding
+        if encoding == 'replace':
             casesensitivity_ = request.form.get('option')
             find_ = request.form.get('find')
             replace_ = request.form.get('replace')
@@ -107,9 +106,9 @@ def decrypt():
 def about():
     return render_template('about.html')
 
-@app.route('/ciphers')
-def ciphers():
-    return render_template('ciphers.html')
+@app.route('/encodings')
+def encodings():
+    return render_template('encodings.html')
 
 @app.route('/htu')
 def howtouse():
