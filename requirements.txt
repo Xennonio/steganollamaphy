@@ -1,5 +1,4 @@
 - apology function for error
-- smart way to choose different names to save images in static
 - explaining encrypt methods
 - create pages
     - /ciphers

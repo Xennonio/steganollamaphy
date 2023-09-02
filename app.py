@@ -1,6 +1,7 @@
 # Import necessary libraries
 from flask import Flask, render_template, request, redirect, session, jsonify
 from PIL import Image
+import os
 
 # Import cryptography functions from another file
 from llamanographer import encryptimg, decryptimg, text_to_binary
@@ -40,6 +41,14 @@ def encrypt():
         filename = request.form.get('filename')
         message = request.form.get('msg')
 
+        # parse the files in the static folder
+        saved_images = os.listdir('./static')
+        num_images = str(len(saved_images))
+        # rename the file if there is one with the same name in the static folder
+        for image_name in saved_images:
+            if filename + '.jpg' == image_name:
+                filename = filename + '(' + num_images + ')'
+
         # Convert the message to binary and encrypt image with the binary message
         binary_message = text_to_binary(message)
         encrypt_check = encryptimg(image, filename, binary_message)
@@ -60,7 +69,7 @@ def encrypt():
         else:
             return redirect('/') # Redirect the user to the root URL in case of encryption failure
     else:
-        return render_template('encrypt.html', image_size=image_size)
+        return render_template('encrypt.html', image_size = image_size)
 
 # Define a route for handling both GET and POST requests at '/decrypt'
 @app.route('/decrypt', methods = ['GET', 'POST'])
