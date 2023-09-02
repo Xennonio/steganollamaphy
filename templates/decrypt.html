@@ -14,7 +14,7 @@
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control" min="1" type="number" placeholder="Message Size" id="textsize" name="textsize" required>
         </div>
-        <button class="btn btn-primary" type="button">Decrypt</button>
+        <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#verification">Decrypt</button>
         <div class="modal fade" id="verification" tabindex="-1" aria-labelledby="verificationLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -26,8 +26,8 @@
                     Are you sure you want to decrypt? Click on "Decrypt" to find out what is hidden in the picture
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Decrypt</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-primary">Decrypt</button>
                 </div>
               </div>
             </div>

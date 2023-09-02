@@ -10,4 +10,10 @@
     <h1> How Does It Work? </h1>
     <p class="lh-sm" style="text-align: left;"> The functioning of the steganography applied here is extremely simple compared to other algorithms used to hide information in images, but it is enough for the purposes of the site. Before understanding how it works, we need to understand how images are interpreted by computers, i.e., what their true general bit format is. </p>
     <p class="lh-sm" style="text-align: left;"> Basically, given a text message and an image, using the Pillow library, which adds support for opening and saving many different image formats, we convert the message into its respective unicode code into binary and save each digit in the last bit of the RGB pixel. </p>
+    <button type="button" class="btn btn-link" style="box-shadow: none;" data-bs-toggle="popover"
+        data-bs-title="Popover title" data-bs-content="Popover content">Test</button>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
 {% endblock %}

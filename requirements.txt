@@ -6,3 +6,5 @@
     - how encond messages using https://cryptii.com
     - why there is a link after the encryptation
     - softwares quality reduction
+- add standard llama photos to test encryption
+    - maybe a carousel of them?
