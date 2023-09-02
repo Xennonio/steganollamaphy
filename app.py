@@ -79,7 +79,12 @@ def decrypt():
     if request.method == 'POST':
         # Get the responses from the request
         image = Image.open(request.files['img'])
-        textsize = int(request.form.get('textsize'))
+        size_option = request.form.get('decrypt_opt')
+
+        if size_option == 'specify':
+            textsize = int(request.form.get('textsize'))
+        else:
+            textsize = image.size[0] * image.size[1]
         
         # Decrypt the image and obtain a temporary message
         tmpmessage = decryptimg(image, textsize)

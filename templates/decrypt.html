@@ -11,9 +11,38 @@
             <label for="img" class="form-label">Select Image:</label>
             <input type="file" id="img" name="img" accept="image/*" required class="form-control">
         </div>
-        <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control" min="1" type="number" placeholder="Message Size" id="textsize" name="textsize" required>
+        <div class="mb-3" id="decryption_options">
+            <p>How much of the image to decrypt:</p>
+            <div class="btn-group-horizontal" role="group">
+                <input type="radio" class="btn-check" name="decrypt_opt" id="all" autocomplete="off" value="all" required>
+                <label class="btn btn-outline-primary" for="all">All</label>
+                <input type="radio" class="btn-check" name="decrypt_opt" id="specify" autocomplete="off" value="specify">
+                <label class="btn btn-outline-primary" for="specify">Specify</label>
+            </div>
         </div>
+        <div class="mb-3" id="specify_size" style="display: none;">
+            <input autocomplete="off" class="form-control" min="1" type="number" placeholder="Message Size" id="textsize" name="textsize">
+        </div>
+
+        <script>
+            // Get references to the radio buttons and the input div
+            var allRadio = document.getElementById("all");
+            var specifyRadio = document.getElementById("specify");
+            var inputDiv = document.getElementById("specify_size");
+            var textSizeInput = document.getElementById("textsize");
+        
+            // Add an event listener to the radio buttons
+            allRadio.addEventListener("change", function () {
+                inputDiv.style.display = "none";
+                textSizeInput.removeAttribute("required"); // Remove the required attribute
+            });
+        
+            specifyRadio.addEventListener("change", function () {
+                inputDiv.style.display = "block";
+                textSizeInput.setAttribute("required", "required"); // Add the required attribute
+            });
+        </script>        
+
         <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#verification">Decrypt</button>
         <div class="modal fade" id="verification" tabindex="-1" aria-labelledby="verificationLabel" aria-hidden="true">
             <div class="modal-dialog">
