@@ -77,14 +77,6 @@ def decrypt():
 
     # Check if the request method is POST
     if request.method == 'POST':
-        # Check if the necessary files are included in the POST request
-        if not request.files['img']:
-            print('error')
-            redirect('/')
-        if not request.form.get('textsize'):
-            print('error')
-            redirect('/')
-
         # Get the responses from the request
         image = Image.open(request.files['img'])
         textsize = int(request.form.get('textsize'))

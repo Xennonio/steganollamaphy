@@ -1,5 +1,9 @@
 - apology function for error
 - explaining encrypt methods
-- create pages
-    - /ciphers
-    - /htu
+    - some basic encodings from https://cryptii.com
+- about
+    - the purpose and a general view of the pages
+- how to use
+    - how encond messages using https://cryptii.com
+    - why there is a link after the encryptation
+    - softwares quality reduction
