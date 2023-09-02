@@ -5,5 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo ullam eveniet est aliquam magni iste dicta voluptatum earum iusto voluptatem, possimus sequi dolorem at quibusdam rerum tempora, nemo, asperiores saepe. </p>
+    <h1> About The Website </h1>
+    <p class="lh-sm" style="text-align: left;"> Welcome to the steganollamaphy website!! This is a simple one-person website done as a final project for <a href="https://cs50.harvard.edu/x/2023/">Harvard University's CS50 Introductory Computer Science</a> 2023 course. The purpose of the project is to allow hiding information in images (practice called <a href="https://en.wikipedia.org/wiki/Steganography">steganography</a>), being able to store from text messages to links, including a link to an image within the image!! </p>
+    <h1> How Does It Work? </h1>
+    <p class="lh-sm" style="text-align: left;"> The functioning of the steganography applied here is extremely simple compared to other algorithms used to hide information in images, but it is enough for the purposes of the site. Before understanding how it works, we need to understand how images are interpreted by computers, i.e., what their true general bit format is. </p>
+    <p class="lh-sm" style="text-align: left;"> Basically, given a text message and an image, using the Pillow library, which adds support for opening and saving many different image formats, we convert the message into its respective unicode code into binary and save each digit in the last bit of the RGB pixel. </p>
 {% endblock %}
