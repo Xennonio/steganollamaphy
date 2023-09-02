@@ -1,5 +1,3 @@
-import re
-
 def encryptimg(image, name, message):
     # Check if the length of the message fits the image
     if len(message) > 3 * image.size[0] * image.size[1]:

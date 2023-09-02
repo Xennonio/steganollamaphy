@@ -6,10 +6,45 @@
 
 {% block main %}
     <h1> About The Website </h1>
-    <p class="lh-sm" style="text-align: left;"> Welcome to the steganollamaphy website!! This is a simple one-person website done as a final project for <a href="https://cs50.harvard.edu/x/2023/">Harvard University's CS50 Introductory Computer Science</a> 2023 course. The purpose of the project is to allow hiding information in images (practice called <a href="https://en.wikipedia.org/wiki/Steganography">steganography</a>), being able to store from text messages to links, including a link to an image within the image!! </p>
+    <p class="lh-sm" style="text-align: left;"> Welcome to the steganollamaphy website!! 
+        This is a simple one-person website done as a final project for 
+        <a href="https://cs50.harvard.edu/x/2023/">Harvard University's CS50 Introductory Computer 
+            Science</a> 2023 course. The purpose of the project is to allow hiding information in 
+            images (practice called <a href="https://en.wikipedia.org/wiki/Steganography">steganography</a>), 
+            being able to store from text messages to links, including a link to an image within the 
+            image!! </p>
     <h1> How Does It Work? </h1>
-    <p class="lh-sm" style="text-align: left;"> The functioning of the steganography applied here is extremely simple compared to other algorithms used to hide information in images, but it is enough for the purposes of the site. Before understanding how it works, we need to understand how images are interpreted by computers, i.e., what their true general bit format is. </p>
-    <p class="lh-sm" style="text-align: left;"> Basically, given a text message and an image, using the Pillow library, which adds support for opening and saving many different image formats, we convert the message into its respective unicode code into binary and save each digit in the last bit of the RGB pixel. </p>
+    <p class="lh-sm" style="text-align: left;"> The functioning of the steganography applied here is 
+        extremely simple compared to other algorithms used to hide information in images, but it is 
+        enough for the purposes of the site. Before understanding how it works, we need to 
+        understand how images are interpreted by computers, i.e., what their true general bit format 
+        is. </p>
+    <p class="lh-sm" style="text-align: left;"> As with all types of files in computing, an image is 
+        nothing more than a set of bits, so there must be a way to convert colors into bits. The 
+        main system for color reproduction in electronic devices is the <a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB (Red, Green, Blue)</a> additive 
+        color system which, if combined in various ways, can reproduce a wide chromatic spectrum. The 
+        idea, therefore, is that an image is nothing more than a matrix 
+        <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>∈</mo><msub><mi>ℳ</mi><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>𝔽</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">M \in \mathcal{M}_{m\times n}(\mathbb{F}^3)</annotation></semantics></math>
+         of triples 
+         <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>R</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>B</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(R, G, B)</annotation></semantics></math>
+         with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>B</mi><mo>∈</mo><mi>𝔽</mi></mrow><annotation encoding="application/x-tex">R, G, B \in \mathbb{F}</annotation></semantics></math>
+         each containing a hue for the colors red, green and blue that, together, form the color of each pixel 
+         specific to the image (remembering that each entry goes from 0 to 255), and the dimension of 
+        <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>×</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">M ~ (m\times n)</annotation></semantics></math>
+         being the width and length of the image, respectively. </p>
+    <p class="lh-sm" style="text-align: left;"> So, basically, given a text message and an image, using 
+        the <a href="https://pillow.readthedocs.io/en/stable/">Pillow library</a>, 
+        which adds support for opening and saving many different image formats, 
+        we convert the message into its respective unicode code into binary and save each digit in 
+        the last bit of the RGB pixel by substituting the value for one of the closest integers of 
+        same parity as the last triple bit. For example, if my triple is 
+        <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>23</mn><mo>,</mo><mn>190</mn><mo>,</mo><mn>45</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(23, 190, 45)</annotation></semantics></math>
+         and the bit 
+        I'm going to hide is 0, then 45 can be replaced by 44 or 46, since 
+        <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>44</mn><mo>,</mo><mn>46</mn><mo>≡</mo><mn>0</mn><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mtext mathvariant="normal">mod </mtext><mspace width="0.333em"></mspace></mrow><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">44, 46 \equiv 0 (\text{mod }2)</annotation></semantics></math>. 
+        Due to this minimal change in 
+        tonality and amid countless other pixels, the difference between the original and the 
+        encrypted one is practically imperceptible to the human eye.</p>
     <button type="button" class="btn btn-link" style="box-shadow: none;" data-bs-toggle="popover"
         data-bs-title="Popover title" data-bs-content="Popover content">Test</button>
     <script>
