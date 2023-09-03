@@ -7,53 +7,43 @@
 {% block main %}
   <div class="row">
     <div class="col-4">
-      <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-        <nav class="nav nav-pills flex-column">
-          <a class="nav-link" href="#encoding-1">encoding 1</a>
-          <nav class="nav nav-pills flex-column">
-            <a class="nav-link ms-3 my-1" href="#encoding-1-1">encoding 1-1</a>
-            <a class="nav-link ms-3 my-1" href="#encoding-1-2">encoding 1-2</a>
-          </nav>
-          <a class="nav-link" href="#encoding-2">encoding 2</a>
-          <a class="nav-link" href="#encoding-3">encoding 3</a>
-          <nav class="nav nav-pills flex-column">
-            <a class="nav-link ms-3 my-1" href="#encoding-3-1">encoding 3-1</a>
-            <a class="nav-link ms-3 my-1" href="#encoding-3-2">encoding 3-2</a>
-          </nav>
-        </nav>
-      </nav>
+      <div id="list-encodings" class="list-group" style="position: fixed; width: 300px;">
+        <a class="list-group-item list-group-item-action" href="#encoding-1">encoding 1</a>
+        <a class="list-group-item list-group-item-action" href="#encoding-2">encoding 2</a>
+        <a class="list-group-item list-group-item-action" href="#encoding-3">encoding 3</a>
+      </div>
     </div>
   
     <div class="col-8">
-      <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+      <div>
         <div id="encoding-1">
           <h4>encoding 1</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem provident et architecto vel adipisci vitae enim aliquam ratione voluptate, natus necessitatibus distinctio sed quia, harum rem eligendi iusto saepe.</p>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem provident et architecto vel adipisci vitae enim aliquam ratione voluptate, natus necessitatibus distinctio sed quia, harum rem eligendi iusto saepe.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi dolorem, earum dolorum odit at laudantium itaque! Enim doloribus quis neque, tenetur, non minus, animi quos rem repellat consectetur deleniti facilis.
+          </p>
           <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><mi>k</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>12</mn></mfrac></mrow><annotation encoding="application/x-tex">\sum_{k=0}^\infty k = -\frac{1}{12}</annotation></semantics></math></p>
-        </div>
-        <div id="encoding-1-1">
-          <h5>encoding 1-1</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quos laborum veritatis eius porro, fugiat ab ex harum dignissimos rerum deleniti. Quod nam voluptas sequi culpa deleniti ea dolores eveniet.</p>
-        </div>
-        <div id="encoding-1-2">
-          <h5>encoding 1-2</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis cupiditate soluta vero! Cupiditate modi autem pariatur vero molestiae laudantium sit asperiores odit ex necessitatibus nobis fugiat error, alias aliquam esse!</p>
         </div>
         <div id="encoding-2">
           <h4>encoding 2</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.</p>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+          </p>
         </div>
         <div id="encoding-3">
           <h4>encoding 3</h4>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit nobis, laboriosam voluptate voluptates quas voluptatibus rerum harum numquam. Praesentium voluptas cumque assumenda quos pariatur culpa hic ducimus quae vel sequi?</p>
-        </div>
-        <div id="encoding-3-1">
-          <h5>encoding 3-1</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, obcaecati est, maiores nesciunt deleniti illo magni eveniet optio laboriosam neque hic aspernatur! Sunt, minus qui. Ratione tempore praesentium aperiam exercitationem?</p>
-        </div>
-        <div id="encoding-3-2">
-          <h5>encoding 3-2</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam nisi non sint quo veritatis facere ad provident. Vero, veritatis numquam. Iste exercitationem deserunt veritatis consectetur eius voluptatem architecto nam veniam.</p>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit nobis, laboriosam voluptate voluptates quas voluptatibus rerum harum numquam. Praesentium voluptas cumque assumenda quos pariatur culpa hic ducimus quae vel sequi?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae dolor sequi numquam? Fuga consectetur sequi reprehenderit maiores temporibus consequuntur animi a, voluptatem sapiente tenetur suscipit odit eos magnam quod dicta.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse sit at, harum ipsum voluptate, neque nam sapiente quidem vitae expedita quaerat corrupti laboriosam aspernatur odio quae nostrum ut tempore accusantium.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat mollitia quos ratione iste voluptates deleniti asperiores ut ipsa accusantium quidem voluptatem ipsam dolore doloremque alias, qui laudantium dolorum est ullam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo impedit expedita repellat ut. Autem inventore rerum cum atque animi exercitationem facilis ad. Amet sed vel ducimus, repellat soluta veniam repellendus!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sunt cum accusamus ipsam consequuntur modi voluptates, quae, dolor sequi dolores quidem possimus praesentium impedit quasi cupiditate saepe excepturi vel ipsa?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit animi laudantium voluptas voluptatem veritatis amet? Debitis hic adipisci unde, aspernatur necessitatibus quisquam iure sed reiciendis facere fuga deleniti quaerat similique?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore tempore voluptatibus libero reiciendis repellendus nesciunt, in aut blanditiis corporis excepturi dolorem magnam ipsum amet dolorum perferendis earum voluptate fuga illo!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde perferendis quo maxime soluta minima illum facilis reiciendis rem dolor iusto ex vero, sed alias explicabo sunt repellat fugit! Distinctio, blanditiis.
+          </p>
         </div>
       </div>
     </div>
