@@ -7,7 +7,7 @@
 {% block main %}
   <div class="row">
     <div class="col-4">
-      <nav class="h-100 flex-column align-items-stretch pe-4 border-end" style="position: fixed;">
+      <nav class="h-100 flex-column align-items-stretch pe-4 border-end" id="scrollspy">
         <nav class="nav nav-pills flex-column" style="text-align: left;">
           <a class="nav-link" href="#encoding-1">Alphabets</a>
           <nav class="nav nav-pills flex-column">
@@ -23,6 +23,18 @@
         </nav>
       </nav>
     </div>
+
+    <style>
+      #scrollspy {
+        position: relative;
+      }
+  
+      @media (min-width: 768px) {
+        #scrollspy {
+          position: fixed;
+        }
+      }
+    </style>
 
     <div class="col-8">
       <div>
