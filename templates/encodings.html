@@ -7,32 +7,70 @@
 {% block main %}
   <div class="row">
     <div class="col-4">
-      <div id="list-encodings" class="list-group" style="position: fixed; width: 300px;">
-        <a class="list-group-item list-group-item-action" href="#encoding-1">encoding 1</a>
-        <a class="list-group-item list-group-item-action" href="#encoding-2">encoding 2</a>
-        <a class="list-group-item list-group-item-action" href="#encoding-3">encoding 3</a>
-      </div>
+      <nav class="h-100 flex-column align-items-stretch pe-4 border-end" style="position: fixed;">
+        <nav class="nav nav-pills flex-column" style="text-align: left;">
+          <a class="nav-link" href="#encoding-1">Alphabets</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#encoding-1-1">Morse Code</a>
+            <a class="nav-link ms-3 my-1" href="#encoding-1-2">Spelling Alphabet</a>
+          </nav>
+          <a class="nav-link" href="#encoding-2">Ciphers</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#encoding-2-1">Enigma Machine</a>
+            <a class="nav-link ms-3 my-1" href="#encoding-2-2">Caesar Cipher</a>
+          </nav>
+          <a class="nav-link" href="#encoding-3">Encodings</a>
+        </nav>
+      </nav>
     </div>
-  
+
     <div class="col-8">
       <div>
         <div id="encoding-1">
-          <h4>encoding 1</h4>
+          <h3>Alphabets</h3>
           <p class="lh-sm" style="text-align: justify;">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem provident et architecto vel adipisci vitae enim aliquam ratione voluptate, natus necessitatibus distinctio sed quia, harum rem eligendi iusto saepe.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi dolorem, earum dolorum odit at laudantium itaque! Enim doloribus quis neque, tenetur, non minus, animi quos rem repellat consectetur deleniti facilis.
           </p>
           <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><mi>k</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>12</mn></mfrac></mrow><annotation encoding="application/x-tex">\sum_{k=0}^\infty k = -\frac{1}{12}</annotation></semantics></math></p>
         </div>
+        <div id="encoding-1-1">
+          <h5>Morse Code</h5>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+          </p>
+        </div>
+        <div id="encoding-1-2">
+          <h5>Spelling Alphabet</h5>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+          </p>
+        </div>
         <div id="encoding-2">
-          <h4>encoding 2</h4>
+          <h3>Ciphers</h3>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+          </p>
+        </div>
+        <div id="encoding-2-1">
+          <h5>Enigma Machine</h5>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+          </p>
+        </div>
+        <div id="encoding-2-2">
+          <h5>Caesar Cipher</h5>
           <p class="lh-sm" style="text-align: justify;">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
           </p>
         </div>
         <div id="encoding-3">
-          <h4>encoding 3</h4>
+          <h3>Encodings</h3>
           <p class="lh-sm" style="text-align: justify;">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit nobis, laboriosam voluptate voluptates quas voluptatibus rerum harum numquam. Praesentium voluptas cumque assumenda quos pariatur culpa hic ducimus quae vel sequi?
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae dolor sequi numquam? Fuga consectetur sequi reprehenderit maiores temporibus consequuntur animi a, voluptatem sapiente tenetur suscipit odit eos magnam quod dicta.
