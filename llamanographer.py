@@ -1,3 +1,4 @@
+# Import the 'randint' and 'choice' functions from the 'random' module.
 from random import choice, randint
 
 def encryptimg(image, name, message):
@@ -73,10 +74,20 @@ def text_to_binary(message):
             binary_message.append(int(bit)) # store in binary message list
     return binary_message
 
+# Define a function 'random_name_generator()' for generating random filenames.
 def random_name_generator():
+    # Define a list of allowed symbols for the filename.
     allowed_symbols = [chr(i) for i in range(48, 58)] + [chr(i) for i in range(65, 91)]  + [chr(i) for i in range(97, 123)] + ['_', '(', ')', '-', ',', '.']
+
+    # Generate a random length for the filename between 5 and 10 characters.
     name_length = randint(5, 10)
+
+    # Initialize an empty string to store the generated filename.
     filename = ''
+
+    # Generate a random filename by selecting characters from the 'allowed_symbols' list.
     for _ in range(name_length):
         filename += choice(allowed_symbols)
+
+    # Return the generated filename.
     return filename

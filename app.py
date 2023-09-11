@@ -100,6 +100,8 @@ def decrypt():
     else:
         return render_template('decrypt.html')
     
+# Defines other routes with some explanatory texts
+
 @app.route('/about')
 def about():
     return render_template('about.html')

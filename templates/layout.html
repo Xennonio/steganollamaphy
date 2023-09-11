@@ -50,18 +50,24 @@
         </nav>
 
         <script>
+            // Execute the code when the document is ready
             $(document).ready(function() {
+                // Get the current page's path from the window's location
                 var path = window.location.pathname;
-                
-                // Loop through each nav item and check if it matches the current page's path
+        
+                // Loop through each navigation item and check if it matches the current page's path
                 $('.nav-item a').each(function() {
+                    // Get the "href" attribute of the current navigation item
                     var href = $(this).attr('href');
+        
+                    // Check if the current page's path matches the navigation item's href
                     if (path === href) {
+                        // If it matches, add the 'active' class to highlight the current page in the navigation
                         $(this).addClass('active');
                     }
                 });
             });
-        </script>
+        </script>        
 
         <main class="container py-5 text-center">
             {% block main %}{% endblock %}
