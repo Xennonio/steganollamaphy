@@ -74,10 +74,7 @@ def text_to_binary(message):
     return binary_message
 
 def random_name_generator():
-    allowed_symbols = [chr(i) for i in range(48, 58)]
-    + [chr(i) for i in range(65, 91)] 
-    + [chr(i) for i in range(97, 123)]
-    + ['_', '(', ')', '-', ',', '.']
+    allowed_symbols = [chr(i) for i in range(48, 58)] + [chr(i) for i in range(65, 91)]  + [chr(i) for i in range(97, 123)] + ['_', '(', ')', '-', ',', '.']
     name_length = randint(5, 10)
     filename = ''
     for _ in range(name_length):
