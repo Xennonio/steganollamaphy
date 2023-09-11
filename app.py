@@ -4,7 +4,7 @@ from PIL import Image
 import os
 
 # Import cryptography functions from another file
-from llamanographer import encryptimg, decryptimg, text_to_binary
+from llamanographer import encryptimg, decryptimg, text_to_binary, random_name_generator
 
 # Create a Flask web application
 app = Flask(__name__, static_url_path='/static')
@@ -38,7 +38,8 @@ def encrypt():
     if request.method == 'POST':
         # Get the responses from the request
         image = Image.open(request.files['img'])
-        filename = request.form.get('filename')
+        filename = random_name_generator()
+        print(filename)
         message = request.form.get('msg')
 
         # parse the files in the static folder
@@ -47,7 +48,7 @@ def encrypt():
         # rename the file if there is one with the same name in the static folder
         for image_name in saved_images:
             if filename + '.jpg' == image_name:
-                filename = filename + '(' + num_images + ')'
+                filename = filename + num_images
 
         # Convert the message to binary and encrypt image with the binary message
         binary_message = text_to_binary(message)

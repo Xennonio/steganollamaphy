@@ -1,3 +1,5 @@
+from random import choice, randint
+
 def encryptimg(image, name, message):
     # Check if the length of the message fits the image
     if len(message) > 3 * image.size[0] * image.size[1]:
@@ -70,3 +72,14 @@ def text_to_binary(message):
         for bit in bin:
             binary_message.append(int(bit)) # store in binary message list
     return binary_message
+
+def random_name_generator():
+    allowed_symbols = [chr(i) for i in range(48, 58)]
+    + [chr(i) for i in range(65, 91)] 
+    + [chr(i) for i in range(97, 123)]
+    + ['_', '(', ')', '-', ',', '.']
+    name_length = randint(5, 10)
+    filename = ''
+    for _ in range(name_length):
+        filename += choice(allowed_symbols)
+    return filename
