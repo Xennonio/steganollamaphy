@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/encrypt" method="post" enctype="multipart/form-data" onsubmit="return showConfirmation();">
+    <form action="/encrypt" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="img" class="form-label">Select image:</label>
             <input type="file" id="img" name="img" accept="image/*" required class="form-control">
@@ -75,24 +75,4 @@
             </div>
         </div>
     </form>
-
-    <script>
-        function showConfirmation(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-    
-            // Display the confirmation modal
-            $('#verification').modal('show');
-    
-            // Handle the confirmation in the modal
-            $('#confirmation-button').on('click', function () {
-                // Close the modal
-                $('#verification').modal('hide');
-                
-                // Submit the form manually
-                event.target.submit();
-            });
-    
-            return false; // Prevent the form from submitting automatically
-        }
-    </script>
 {% endblock %}
