@@ -25,48 +25,20 @@
         </div>
 
         <script>
-            // Get references to HTML elements by their IDs
-            const fileInput = document.getElementById('img');        // File input element
-            const msgInput = document.getElementById('msg');          // Message input element
-            const charCount = document.getElementById('charCount');    // Character count element
-        
-            // Add an event listener to the file input element
-            fileInput.addEventListener('change', function () {
-                if (this.files.length > 0) {
-                    // Upload the selected image and get its size asynchronously
-                    const formData = new FormData();
-                    formData.append('img', this.files[0]);
-        
-                    // Send a POST request to '/get_image_size' with the uploaded image
-                    fetch('/get_image_size', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json()) // Parse the response as JSON
-                    .then(data => {
-                        const image_size = data.image_size;
-                        // Update the maximum character count with the received image_size
-                        const maxCharacters = image_size;
-        
-                        // Enable the message input field
-                        msgInput.removeAttribute('disabled');
-                        // Initialize and update the character count display
-                        updateCharCount();
-        
-                        // Function to update character count when the input field changes
-                        function updateCharCount() {
-                            const currentLength = msgInput.value.length;
-                            charCount.textContent = currentLength + '/' + maxCharacters;
-                        }
-        
-                        // Add an event listener to the message input field to track changes
-                        msgInput.addEventListener('input', updateCharCount);
-                    });
-                } else {
-                    // If no image is selected, disable the message input field and set character count to 0/0
-                    msgInput.setAttribute('disabled', 'disabled');
-                    charCount.textContent = '0/0';
-                }
+            // Get references to the radio buttons and the input div
+            var allRadio = document.getElementById("all");
+            var specifyRadio = document.getElementById("specify");
+            var inputDiv = document.getElementById("specify_size");
+            var textSizeInput = document.getElementById("textsize");
+
+            // Add an event listener to the radio buttons
+            allRadio.addEventListener("change", function () {
+                inputDiv.style.display = "none";
+                textSizeInput.removeAttribute("required"); // Remove the required attribute
+            });
+            specifyRadio.addEventListener("change", function () {
+                inputDiv.style.display = "block";
+                textSizeInput.setAttribute("required", "required"); // Add the required attribute
             });
         </script>             
 
