@@ -6,7 +6,6 @@
 
 {% block main %}
     <form action="/encrypt" method="post" enctype="multipart/form-data">
-
         <div class="mb-3" id="attach_image_options">
             <p>Select Image:</p>
             <div class="btn-group-horizontal" role="group" required>
@@ -26,145 +25,13 @@
                 <input type="radio" class="btn-check" name="img" id="img2" value="img2" autocomplete="off">
                 <label class="btn btn-outline-primary" for="img2">img2</lasbel>
             </div>
-            <img src="/static/alpaca.png" width="400px" height="400px" name="img" value="/static/alpaca.png">
         </div>
-
         <span id="charCount">Upload the image to see character limit</span>
         <div class="mb-3">
             <label for="msg" class="form-label">Message:</label>
             <input autocomplete="off" type="text" id="msg" name="msg" disabled required class="form-control">
-
-            <script>
-                // Get references to HTML elements, the radio buttons and the input div by their IDs
-                const fileInput = document.getElementById('img'); // File input element
-                const msgInput = document.getElementById('msg'); // Message input element
-                const charCount = document.getElementById('charCount'); // Character count element
-                var defaultRadio = document.getElementById("default"); // Get the 'default' radio button element
-                var specifyRadio = document.getElementById("specify"); // Get the 'specify' radio button element
-                var img1Radio = document.getElementById("img1"); // Get the 'img1' radio button element
-                var img2Radio = document.getElementById("img2"); // Get the 'img2' radio button element
-                var specifyInputDiv = document.getElementById("specify_img"); // Get the specify input div element
-                var defaultInputDiv = document.getElementById("default_img"); // Get the default input div element
-                var imgInput = document.getElementById("img"); // Get the image input element
-                
-                // Variable to store the maximum character count
-                var maxCharacters = 0;
-            
-                // Function to update character count based on the selected image size
-                function updateCharCount() {
-                    const currentLength = msgInput.value.length;
-                    charCount.textContent = currentLength + '/' + maxCharacters;
-                }
-
-                // Function to clear the selected image and character count
-                function clearSelection() {
-                    imgInput.value = ''; // Clear the selected image
-                    charCount.textContent = 'Upload the image to see character limit'; // Reset character count text
-                    // If no image is selected, disable the message input field and set character count to 0/None
-                    msgInput.setAttribute('disabled', 'disabled');
-                    charCount.textContent = 'Upload the image to see character limit';
-                }
-            
-                // Add an event listener to the radio buttons
-                defaultRadio.addEventListener("change", function () {
-                    // When the 'default' radio button is selected, hide the specify input div and show the default input div
-                    specifyInputDiv.style.display = "none";
-                    defaultInputDiv.style.display = "block";
-                    // Remove the 'required' attribute from the text size input, as it's not needed
-                    imgInput.removeAttribute("required");
-                    // Add the 'required' attribute to the img Radio input, making it mandatory
-                    img1Radio.setAttribute("required", "required");
-                    // Set maxCharacters to 0 (or any default value you want for default images)
-                    maxCharacters = "None";
-                    msgInput.addEventListener('input', updateCharCount);
-                    // Update the character count display
-                    updateCharCount();
-                    // Clear the selected image, character count, message and default_imgs buttons
-                    clearSelection();
-                    msgInput.value = '';
-                    img1Radio.checked = false;
-                    img2Radio.checked = false;
-                });
-            
-                specifyRadio.addEventListener("change", function () {
-                    // When the 'specify' radio button is selected, show the specify input div and hide the default input div
-                    specifyInputDiv.style.display = "block";
-                    defaultInputDiv.style.display = "none";
-                    // Add the 'required' attribute to the text size input, making it mandatory
-                    imgInput.setAttribute("required", "required");
-                    // Remove the 'required' attribute from the img Radio input, as it's not needed
-                    img1Radio.removeAttribute("required");
-                    // Set maxCharacters to the image size (you should fetch this value from your API)
-                    maxCharacters = "None"; // Implement this function to fetch the size
-                    msgInput.addEventListener('input', updateCharCount);
-                    // Update the character count display
-                    updateCharCount();
-                    // Clear the selected image, character count and message
-                    clearSelection();
-                    msgInput.value = '';
-                });
-            
-                // Add event listeners to img1 and img2 radio buttons
-                img1Radio.addEventListener("change", function () {
-                    maxCharacters = 24; // Set the maximum character count for img1
-                    // Enable the message input field
-                    msgInput.removeAttribute('disabled');
-                    // Update the character count display
-                    updateCharCount();
-                });
-            
-                img2Radio.addEventListener("change", function () {
-                    maxCharacters = 25; // Set the maximum character count for img2
-                    // Enable the message input field
-                    msgInput.removeAttribute('disabled');
-                    // Remove the 'required' attribute from the img Radio input, as it's not needed
-                    img1Radio.removeAttribute("required");
-                    // Update the character count display
-                    updateCharCount();
-                });
-                
-                // Add an event listener to the file input element
-                fileInput.addEventListener('change', function () {
-                    if (this.files.length > 0) {
-                        // Upload the selected image and get its size asynchronously
-                        const formData = new FormData();
-                        formData.append('img', this.files[0]);
-
-                        // Send a POST request to '/get_image_size' with the uploaded image
-                        fetch('/get_image_size', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => response.json()) // Parse the response as JSON
-                        .then(data => {
-                            const image_size = data.image_size;
-                            // Update the global maximum character count with the received image_size
-                            maxCharacters = image_size; // Update the global variable
-
-                            // Enable the message input field
-                            msgInput.removeAttribute('disabled');
-                            // Update the character count display
-                            updateCharCount();
-
-                            // Function to update character count when the input field changes
-                            function updateCharCount() {
-                                const currentLength = msgInput.value.length;
-                                charCount.textContent = currentLength + '/' + maxCharacters;
-                            }
-
-                            // Add an event listener to the message input field to track changes
-                            msgInput.addEventListener('input', updateCharCount);
-                        });
-                    } else {
-                        // If no image is selected, disable the message input field and set character count to 0/None
-                        msgInput.setAttribute('disabled', 'disabled');
-                        charCount.textContent = 'Upload the image to see character limit';
-                    }
-                });
-            </script>
-
         </div>
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#verification">Encrypt</button>
+        <button class="btn btn-outline-primary mb-3" type="button" data-bs-toggle="modal" data-bs-target="#verification">Encrypt</button>
         <div class="modal fade" id="verification" tabindex="-1" aria-labelledby="verificationLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -182,5 +49,173 @@
               </div>
             </div>
         </div>
+        <div id="carousel" class="carousel slide mb-3" style="display: none;">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./static/default_images/img1.jpg" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Image 1</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./static/default_images/img2.jpg" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Image 2</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./static/default_images/img3.jpg" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Image 3</h5>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </form>
+
+    <script>
+        // Get references to HTML elements, the radio buttons and the input div by their IDs
+        const fileInput = document.getElementById('img'); // File input element
+        const msgInput = document.getElementById('msg'); // Message input element
+        const charCount = document.getElementById('charCount'); // Character count element
+        var defaultRadio = document.getElementById("default"); // Get the 'default' radio button element
+        var specifyRadio = document.getElementById("specify"); // Get the 'specify' radio button element
+        var img1Radio = document.getElementById("img1"); // Get the 'img1' radio button element
+        var img2Radio = document.getElementById("img2"); // Get the 'img2' radio button element
+        var specifyInputDiv = document.getElementById("specify_img"); // Get the specify input div element
+        var defaultInputDiv = document.getElementById("default_img"); // Get the default input div element
+        var carouselInputDiv = document.getElementById("carousel");
+        var imgInput = document.getElementById("img"); // Get the image input element
+        
+        // Variable to store the maximum character count
+        var maxCharacters = 0;
+    
+        // Function to update character count based on the selected image size
+        function updateCharCount() {
+            const currentLength = msgInput.value.length;
+            charCount.textContent = currentLength + '/' + maxCharacters;
+        }
+
+        // Function to clear the selected image and character count
+        function clearSelection() {
+            imgInput.value = ''; // Clear the selected image
+            charCount.textContent = 'Upload the image to see character limit'; // Reset character count text
+            // If no image is selected, disable the message input field and set character count to 0/None
+            msgInput.setAttribute('disabled', 'disabled');
+            charCount.textContent = 'Upload the image to see character limit';
+        }
+    
+        // Add an event listener to the radio buttons
+        defaultRadio.addEventListener("change", function () {
+            // When the 'default' radio button is selected, hide the specify input div and show the default input div
+            specifyInputDiv.style.display = "none";
+            defaultInputDiv.style.display = "block";
+            carouselInputDiv.style.display = "block";
+            // Remove the 'required' attribute from the text size input, as it's not needed
+            imgInput.removeAttribute("required");
+            // Add the 'required' attribute to the img Radio input, making it mandatory
+            img1Radio.setAttribute("required", "required");
+            // Set maxCharacters to 0 (or any default value you want for default images)
+            maxCharacters = "None";
+            msgInput.addEventListener('input', updateCharCount);
+            // Update the character count display
+            updateCharCount();
+            // Clear the selected image, character count, message and default_imgs buttons
+            clearSelection();
+            msgInput.value = '';
+            img1Radio.checked = false;
+            img2Radio.checked = false;
+        });
+    
+        specifyRadio.addEventListener("change", function () {
+            // When the 'specify' radio button is selected, show the specify input div and hide the default input div
+            specifyInputDiv.style.display = "block";
+            defaultInputDiv.style.display = "none";
+            carouselInputDiv.style.display = "none";
+            // Add the 'required' attribute to the text size input, making it mandatory
+            imgInput.setAttribute("required", "required");
+            // Remove the 'required' attribute from the img Radio input, as it's not needed
+            img1Radio.removeAttribute("required");
+            // Set maxCharacters to the image size (you should fetch this value from your API)
+            maxCharacters = "None"; // Implement this function to fetch the size
+            msgInput.addEventListener('input', updateCharCount);
+            // Update the character count display
+            updateCharCount();
+            // Clear the selected image, character count and message
+            clearSelection();
+            msgInput.value = '';
+        });
+    
+        // Add event listeners to img1 and img2 radio buttons
+        img1Radio.addEventListener("change", function () {
+            maxCharacters = 24; // Set the maximum character count for img1
+            // Enable the message input field
+            msgInput.removeAttribute('disabled');
+            // Update the character count display
+            updateCharCount();
+        });
+    
+        img2Radio.addEventListener("change", function () {
+            maxCharacters = 25; // Set the maximum character count for img2
+            // Enable the message input field
+            msgInput.removeAttribute('disabled');
+            // Remove the 'required' attribute from the img Radio input, as it's not needed
+            img1Radio.removeAttribute("required");
+            // Update the character count display
+            updateCharCount();
+        });
+        
+        // Add an event listener to the file input element
+        fileInput.addEventListener('change', function () {
+            if (this.files.length > 0) {
+                // Upload the selected image and get its size asynchronously
+                const formData = new FormData();
+                formData.append('img', this.files[0]);
+
+                // Send a POST request to '/get_image_size' with the uploaded image
+                fetch('/get_image_size', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json()) // Parse the response as JSON
+                .then(data => {
+                    const image_size = data.image_size;
+                    // Update the global maximum character count with the received image_size
+                    maxCharacters = image_size; // Update the global variable
+
+                    // Enable the message input field
+                    msgInput.removeAttribute('disabled');
+                    // Update the character count display
+                    updateCharCount();
+
+                    // Function to update character count when the input field changes
+                    function updateCharCount() {
+                        const currentLength = msgInput.value.length;
+                        charCount.textContent = currentLength + '/' + maxCharacters;
+                    }
+
+                    // Add an event listener to the message input field to track changes
+                    msgInput.addEventListener('input', updateCharCount);
+                });
+            } else {
+                // If no image is selected, disable the message input field and set character count to 0/None
+                msgInput.setAttribute('disabled', 'disabled');
+                charCount.textContent = 'Upload the image to see character limit';
+            }
+        });
+    </script>
+
 {% endblock %}
