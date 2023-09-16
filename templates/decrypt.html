@@ -26,21 +26,26 @@
 
         <script>
             // Get references to the radio buttons and the input div
-            var allRadio = document.getElementById("all");
-            var specifyRadio = document.getElementById("specify");
-            var inputDiv = document.getElementById("specify_size");
-            var textSizeInput = document.getElementById("textsize");
-
+            var allRadio = document.getElementById("all"); // Get the 'all' radio button element
+            var specifyRadio = document.getElementById("specify"); // Get the 'specify' radio button element
+            var inputDiv = document.getElementById("specify_size"); // Get the input div element
+            var textSizeInput = document.getElementById("textsize"); // Get the text size input element
+        
             // Add an event listener to the radio buttons
             allRadio.addEventListener("change", function () {
+                // When the 'all' radio button is selected, hide the input div
                 inputDiv.style.display = "none";
-                textSizeInput.removeAttribute("required"); // Remove the required attribute
+                // Remove the 'required' attribute from the text size input, as it's not needed
+                textSizeInput.removeAttribute("required");
             });
+        
             specifyRadio.addEventListener("change", function () {
+                // When the 'specify' radio button is selected, show the input div
                 inputDiv.style.display = "block";
-                textSizeInput.setAttribute("required", "required"); // Add the required attribute
+                // Add the 'required' attribute to the text size input, making it mandatory
+                textSizeInput.setAttribute("required", "required");
             });
-        </script>             
+        </script>         
 
         <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#verification">Decrypt</button>
         <div class="modal fade" id="verification" tabindex="-1" aria-labelledby="verificationLabel" aria-hidden="true">

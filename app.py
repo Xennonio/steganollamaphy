@@ -37,10 +37,20 @@ def encrypt():
     # Check if the request method is POST
     if request.method == 'POST':
         # Get the responses from the request
-        image = Image.open(request.files['img'])
+        img_opt = request.form.get('imgatt_opt')
         filename = random_name_generator()
         print(filename)
         message = request.form.get('msg')
+
+        if img_opt == 'specify':
+            image = Image.open(request.files['img'])
+        else:
+            default_img = request.form.get('img')
+            print(default_img)
+            if default_img == 'img1':
+                image = Image.open('./static/alpaca.png')
+            if default_img == 'img2':
+                image = Image.open('./static/llama.jpg')
 
         # parse the files in the static folder
         saved_images = os.listdir('./static')
