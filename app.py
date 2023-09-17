@@ -48,9 +48,11 @@ def encrypt():
             default_img = request.form.get('img')
             print(default_img)
             if default_img == 'img1':
-                image = Image.open('./static/alpaca.png')
+                image = Image.open('./static/default_images/img1.jpg')
             if default_img == 'img2':
-                image = Image.open('./static/llama.jpg')
+                image = Image.open('./static/default_images/img2.jpg')
+            if default_img == 'img3':
+                image = Image.open('./static/default_images/img3.jpg')
 
         # parse the files in the static folder
         saved_images = os.listdir('./static')
