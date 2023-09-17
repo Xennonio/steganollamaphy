@@ -39,14 +39,12 @@ def encrypt():
         # Get the responses from the request
         img_opt = request.form.get('imgatt_opt')
         filename = random_name_generator()
-        print(filename)
         message = request.form.get('msg')
 
         if img_opt == 'specify':
             image = Image.open(request.files['img'])
         else:
             default_img = request.form.get('img')
-            print(default_img)
             if default_img == 'img1':
                 image = Image.open('./static/default_images/img1.jpg')
             if default_img == 'img2':
