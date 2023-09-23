@@ -12,7 +12,7 @@ Steganollamaphy is a simple one-person website done as a final project for <a hr
 
 4. The `/static` folder contains all the photos and icons used on the website, such as the images shown on the page, the default photo options that can be used in encryption, etc.
 
-5. In most codes there are enough comments to understand the encryption and decryption process, but a more detailed explanation can be found on the website itself: http://xenonio.pythonanywhere.com/about
+5. In most codes there are enough comments to understand the encryption and decryption process, but a more detailed explanation can be found on the <a href="http://xenonio.pythonanywhere.com/about">website itself</a>.
 
 ## Main Features
 
@@ -27,7 +27,7 @@ Steganollamaphy is a simple one-person website done as a final project for <a hr
 * Explanation of different types of encodings
   * You can see the explanation and formalization of different types of encryption before hiding your image in an image, or even trying to decrypt a message found in another image.
   * There is an explanation of the main types of encodings, such as alphabets, ciphers and substitution.
-* You can see more about the site's main features and how to use them on the site itself: http://xenonio.pythonanywhere.com/htu
+* You can see more about the site's main features and how to use them on the <a href="http://xenonio.pythonanywhere.com/htu">website itself</a>.
 
 ## Directory structure
 ```
