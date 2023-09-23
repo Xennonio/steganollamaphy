@@ -31,23 +31,23 @@ Steganollamaphy is a simple one-person website done as a final project for <a hr
 
 ## Directory structure
 ```
-./steganollamaphy
-│   .gitignore
-│   app.py
-│   llamanographer.py
+.
+│   .gitignore                 # File for specifying which files/folders to ignore in version control
+│   app.py                     # Main application Python file
+│   llamanographer.py          # Python file with the main encryption functions used in app.py
 │
-├───static
-│   │   alpaca.png
-│   │   llama.ico
-│   │   llama.jpg
-│   │   Morse_Code_Chart.png
+├───static                     # Static files directory
+│   │   alpaca.png             # Homepage photo
+│   │   llama.ico              # Website icon
+│   │   llama.jpg              # Test default image
+│   │   Morse_Code_Chart.png   # Table explaining morse code
 │   │
-│   └───default_images
+│   └───default_images         # Subdirectory for default images used in encryption
 │           img1.jpg
 │           img2.jpg
 │           img3.jpg
 │
-├───templates
+├───templates                  # HTML templates directory
 │       about.html
 │       decrypt.html
 │       decrypted.html
@@ -57,7 +57,7 @@ Steganollamaphy is a simple one-person website done as a final project for <a hr
 │       homepage.html
 │       howtouse.html
 │       layout.html
-└───__pycache__
+└───__pycache__                # Python bytecode cache directory (compiled for app.py and llamanographer.py)
         app.cpython-39.pyc
         llamanographer.cpython-39.pyc
 ```
