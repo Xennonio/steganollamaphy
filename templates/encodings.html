@@ -20,6 +20,9 @@
             <a class="nav-link ms-3 my-1" href="#encoding-2-2">Caesar Cipher</a>
           </nav>
           <a class="nav-link" href="#encoding-3">Encodings</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#encoding-3-1">Base32</a>
+          </nav>
         </nav>
       </nav>
     </div>
@@ -62,7 +65,7 @@
             <li>The Morse Code uses three symbols, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">&quot;.&quot;</mtext><mo>,</mo><mtext mathvariant="normal">&quot;-&quot;</mtext><mo>,</mo><mtext mathvariant="normal">&quot;/&quot;</mtext><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">V = \{\text{&quot;.&quot;}, \text{&quot;-&quot;}, \text{&quot;/&quot;}\}</annotation></semantics></math>, where the dot <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>.</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(.)</annotation></semantics></math> represents a short signal, as a unit of time, and the dash <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-)</annotation></semantics></math> a long signal, typically three times the duration of a dot, and the bar <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>/</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(/)</annotation></semantics></math> is for space.</li>
             <li>And the Morse Code encoding function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> is defined as the table:</li>
           </ul>
-          <img src="static\Morse_Code_Chart.png" width="528" height="408" style="vertical-align: auto;">
+          <img src="static/Morse_Code_Chart.png" alt="Morse Code Conversion Table" width="528" height="408" style="vertical-align: auto;">
           <p class="lh-sm" style="text-align: justify;">
             Along with some additional characters you can test in <a href="https://cryptii.com">cryptii</a>, like the space being "/".
           </p>
@@ -70,15 +73,22 @@
         <div id="encoding-1-2">
           <h5>Spelling Alphabet</h5>
           <p class="lh-sm" style="text-align: justify;">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+            Again by formalizing Alphabet Encoding, we can define Spelling Alphabet (also known as NATO phonetic alphabet) as:
+          </p>
+          <ul style="text-align: justify;">
+            <li>The alphabet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> consists of the 26 letters of the English alphabet (A-Z).</li>
+            <li>The Spelling Alphabet uses the same symbols as the alphabet, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>Σ</mi></mrow><annotation encoding="application/x-tex">V = \Sigma</annotation></semantics></math> (There are some variations between upper and lower case, but the principle is the same).</li>
+            <li>And the Spelling Alphabet encoding function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> is defined as the table:</li>
+          </ul>
+          <img src="static/NATO.jpg" alt="Spelling Alphabet Conversion Table" width="400" height="517.6" style="vertical-align: auto;">
+          <p class="lh-sm" style="text-align: justify;">
+            Again, you can test encoding and decoding in <a href="https://cryptii.com">cryptii</a>.
           </p>
         </div>
         <div id="encoding-2">
           <h3>Ciphers</h3>
           <p class="lh-sm" style="text-align: justify;">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+            Ciphers are much more general categories than alphabet ciphers that use substitution; they are, in general, defined by their use. Ciphers are intended to send or store information securely, therefore, in general, the encryption of a given input is determined by certain factors called keys. These guarantee that, if someone tries to decrypt the encrypted message by brute force, it will take an extremely long time without the key, making knowledge of the information practically restricted to those who know the key. Some famous examples are: Caesar Cipher, Enigma Machine, Vigenère Cipher, A1Z26, etc.
           </p>
         </div>
         <div id="encoding-2-1">
@@ -98,16 +108,17 @@
         <div id="encoding-3">
           <h3>Encodings</h3>
           <p class="lh-sm" style="text-align: justify;">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit nobis, laboriosam voluptate voluptates quas voluptatibus rerum harum numquam. Praesentium voluptas cumque assumenda quos pariatur culpa hic ducimus quae vel sequi?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae dolor sequi numquam? Fuga consectetur sequi reprehenderit maiores temporibus consequuntur animi a, voluptatem sapiente tenetur suscipit odit eos magnam quod dicta.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse sit at, harum ipsum voluptate, neque nam sapiente quidem vitae expedita quaerat corrupti laboriosam aspernatur odio quae nostrum ut tempore accusantium.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat mollitia quos ratione iste voluptates deleniti asperiores ut ipsa accusantium quidem voluptatem ipsam dolore doloremque alias, qui laudantium dolorum est ullam.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo impedit expedita repellat ut. Autem inventore rerum cum atque animi exercitationem facilis ad. Amet sed vel ducimus, repellat soluta veniam repellendus!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sunt cum accusamus ipsam consequuntur modi voluptates, quae, dolor sequi dolores quidem possimus praesentium impedit quasi cupiditate saepe excepturi vel ipsa?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit animi laudantium voluptas voluptatem veritatis amet? Debitis hic adipisci unde, aspernatur necessitatibus quisquam iure sed reiciendis facere fuga deleniti quaerat similique?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore tempore voluptatibus libero reiciendis repellendus nesciunt, in aut blanditiis corporis excepturi dolorem magnam ipsum amet dolorum perferendis earum voluptate fuga illo!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde perferendis quo maxime soluta minima illum facilis reiciendis rem dolor iusto ex vero, sed alias explicabo sunt repellat fugit! Distinctio, blanditiis.
+            Unlike ciphers, encodings are a type of cipher whose key, or conversion table, is public knowledge and whose purpose is not necessarily the security of data and information, therefore, just like ciphers, encodings are categorized by their purpose rather than its functioning. Some famous examples are: Base32, Base64, ASCII, URL encoding, etc.
           </p>
+        </div>
+        <div id="encoding-3-1">
+          <h5>Base32</h5>
+          <p class="lh-sm" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nesciunt accusamus, veritatis illo voluptatem repellat consequatur id aliquam commodi! Cumque repellendus reprehenderit temporibus vitae, exercitationem vero iusto alias ullam omnis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam enim officia voluptas dolores quidem doloribus veritatis, mollitia incidunt nihil sapiente veniam expedita totam, fugit, eaque quam odit velit rem vitae.
+          </p>
+          <a href="https://datatracker.ietf.org/doc/html/rfc4648">RFC4648 TABLE</a>
+          <!-- https://www.youtube.com/watch?v=Va8FLD-iuTg -->
         </div>
       </div>
     </div>
@@ -129,5 +140,9 @@
   
 
   <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <!--LaTeX formatting done at: https://pandoc.org/try/-->
+    <!--LaTeX formatting done at: https://pandoc.org/try/
+      \begin{equation}
+        <LaTeX Code>
+      \end{equation}
+    -->
 {% endblock %}
