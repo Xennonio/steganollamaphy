@@ -45,7 +45,7 @@ Steganollamaphy is a simple one-person website done as a final project for <a hr
 │   └───default_images         # Subdirectory for default images used in encryption
 │           img1.jpg
 │           img2.jpg
-│           img3.jpg
+│           img3.jpg 
 │
 ├───templates                  # HTML templates directory
 │       about.html
