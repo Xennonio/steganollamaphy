@@ -62,5 +62,4 @@ Steganollamaphy is a simple one-person website done as a final project for <a hr
         llamanographer.cpython-39.pyc
 ```
 
-#### Video Demo: https://www.youtube.com/watch?v=fT0moIdhUx8
 #### Website Link: http://xenonio.pythonanywhere.com
